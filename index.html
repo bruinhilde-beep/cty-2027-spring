@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CTY 2027 春季數理課</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+/* Layout: one sticky-header data table, course name + official-page button at left, ET and Taiwan columns side by side. */
+:root {
+  --bg: #fbf1e6;
+  --surface: #fffaf3;
+  --fg: #3a261c;
+  --muted: #7a5c4b;
+  --line: #ecd5bd;
+  --head: #f4dcc0;
+  --band: #fcefdf;
+  --accent: #c2410c;
+  --accent-fg: #ffffff;
+  --btn: #1b5f8c;
+  --btn-fg: #ffffff;
+  --termA: #f5b21a;
+  --termA-fg: #3a2200;
+  --termB: #a62b1f;
+  --termB-fg: #ffffff;
+  --tw: #fff0c9;
+  --tw2: #ffe6ad;
+  --font: "IBM Plex Sans", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1f1510; --surface: #2a1d16; --fg: #f5e6d8; --muted: #c4a892; --line: #4a3427;
+    --head: #3d2b20; --band: #321f17; --accent: #ff9a62; --accent-fg: #1f1510;
+    --btn: #6cc4ea; --btn-fg: #08202e;
+    --termA: #ffc247; --termA-fg: #2e1a00; --termB: #e0644f; --termB-fg: #2a0d08;
+    --tw: #3b2d14; --tw2: #46341a; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1f1510; --surface: #2a1d16; --fg: #f5e6d8; --muted: #c4a892; --line: #4a3427;
+  --head: #3d2b20; --band: #321f17; --accent: #ff9a62; --accent-fg: #1f1510;
+  --btn: #6cc4ea; --btn-fg: #08202e;
+  --termA: #ffc247; --termA-fg: #2e1a00; --termB: #e0644f; --termB-fg: #2a0d08;
+  --tw: #3b2d14; --tw2: #46341a; color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 15px; line-height: 1.55;
+  padding-block: 28px 56px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 1120px; margin: 0 auto; display: grid; gap: 20px; }
+h1 { font-size: 26px; line-height: 1.25; margin: 0; text-wrap: balance; }
+.sub { color: var(--muted); margin: 4px 0 0; }
+.notes { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; display: grid; gap: 6px; }
+.notes p { margin: 0; }
+.notes b { font-weight: 600; }
+.tablebox { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; min-width: 900px; font-variant-numeric: tabular-nums; }
+th { text-align: left; font-size: 12px; letter-spacing: .06em; color: var(--muted); font-weight: 600; padding: 10px 12px; border-bottom: 2px solid var(--accent); background: var(--head); color: var(--fg); white-space: nowrap; }
+th.tw { background: var(--tw2); }
+td.tw { background: var(--tw); font-weight: 500; }
+tr.band td { background: var(--band); }
+tr.band td.tw { background: var(--tw2); }
+td { padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tr.first td { border-top: 2px solid var(--line); }
+td.course { min-width: 240px; font-weight: 700; font-size: 18px; line-height: 1.35; }
+td.course .grade { display: block; font-weight: 400; color: var(--muted); font-size: 13px; margin-top: 2px; }
+td.one { white-space: nowrap; }
+td.one b { font-weight: 700; margin-left: 14px; }
+.chip { display: inline-block; font-size: 14px; font-weight: 700; padding: 2px 11px; border-radius: 999px; white-space: nowrap; }
+.chip.A { background: var(--termA); color: var(--termA-fg); }
+.chip.B { background: var(--termB); color: var(--termB-fg); }
+.chip small { font-weight: 400; margin-left: 3px; }
+.btn { display: inline-block; background: var(--btn); color: var(--btn-fg); text-decoration: none; font-weight: 600; font-size: 14px; padding: 7px 14px; border-radius: 6px; margin-top: 6px; }
+.btn:hover { filter: brightness(1.1); }
+.btn:focus-visible { outline: 3px solid var(--fg); outline-offset: 2px; }
+td.course .btn { display: inline-block; }
+h2 { font-size: 18px; margin: 0; }
+.honors { display: flex; flex-wrap: wrap; gap: 10px; }
+.honors .btn { margin-top: 0; }
+.fine { color: var(--muted); font-size: 13px; margin: 0; }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>CTY 2027 春季線上課：數理資格適用</h1>
+    <p class="sub">7 年級以上、只需通過數理（Quantitative）測驗的課程。資料讀取日 2026/11/1，報名前請再看官網。</p>
+  </header>
+
+  <section class="notes" aria-label="時差說明">
+    <p><b>時差：</b>美國夏令時間 2027/3/14 開始。之前台灣比美東快 13 小時，之後快 12 小時。台灣沒有夏令時間。</p>
+    <p><b>看台灣時間：</b>美東晚上的課在台灣是隔天早上；美東週六早上的課在台灣是同一天晚上。</p>
+    <p><b>非官方整理：</b>這是個人整理的參考表，與 Johns Hopkins CTY 無關。課程內容、日期與報名截止日以 CTY 官網為準。</p>
+    <p><b>學期：</b><span class="chip A">A</span> 春季 A（1/24–3/6 開課）　<span class="chip B">B</span> 春季 B（3/22–5/1 開課）</p>
+  </section>
+
+  <div class="tablebox" tabindex="0" role="region" aria-label="課程時間表">
+    <table>
+      <thead>
+        <tr><th>課程</th><th>學期</th><th>美東（日期　時間）</th><th class="tw">台灣（日期　時間）</th></tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+
+  <section style="display:grid;gap:10px">
+    <h2>沒有固定上課時間的 Honors 數學</h2>
+    <p class="fine">官網只列長期日期：Spring A 1/25–10/18，Spring B 3/22–12/13。看起來是個人進度制，請向 CTY 確認。</p>
+    <div class="honors" id="honors"></div>
+  </section>
+</div>
+
+<script>
+var BASE = "https://cty.jhu.edu/cty-experience/courses/";
+var C = [
+ ["Advanced Competitive Math","7–11 年級","advanced-competitive-math-amcc",[
+  ["A","1/26–3/2（週二）","8–9:30pm","1/27–3/3（週三）","9–10:30am"],
+  ["B","3/23–4/27（週二）","8–9:30pm","3/24–4/28（週三）","8–9:30am"]]],
+ ["Be the Doctor: Dilemmas, Diseases, and Diagnoses","7–11 年級","be-doctor-dilemmas-diseases-and-diagnoses-doc2",[
+  ["A","1/26–3/2（週二）","7–8:30pm","1/27–3/3（週三）","8–9:30am"],
+  ["A 週六班","1/30–3/6（週六）","8–9:30am","1/30–3/6（週六）","9–10:30pm"],
+  ["B","3/25–4/29（週四）","7–8:30pm","3/26–4/30（週五）","7–8:30am"],
+  ["B 週六班","3/27–5/1（週六）","8–9:30am","3/27–5/1（週六）","8–9:30pm"]]],
+ ["Be the Doctor: Science Behind the Symptoms","7–11 年級","be-doctor-science-behind-symptoms-sdoc",[
+  ["A","1/29–3/5（週五）","7–8:30pm","1/30–3/6（週六）","8–9:30am"],
+  ["A 週六班","1/30–3/6（週六）","8–9:30am","1/30–3/6（週六）","9–10:30pm"],
+  ["B","3/24–4/28（週三）","7–8:30pm","3/25–4/29（週四）","7–8:30am"],
+  ["B 週六班","3/27–5/1（週六）","8–9:30am","3/27–5/1（週六）","8–9:30pm"]]],
+ ["Civics, Democracy, and Public Trust","7–9 年級","civics-democracy-and-public-trust-tdpg",[
+  ["A","2/2–2/16（週二）","8–9:30pm","2/3–2/17（週三）","9–10:30am"]]],
+ ["Climate Change and Neurobiology","7–9 年級","climate-change-and-neurobiology-tnww",[
+  ["A","1/27–3/3（週三）","7–8:30pm","1/28–3/4（週四）","8–9:30am"],
+  ["B","3/23–4/27（週二）","7–8:30pm","3/24–4/28（週三）","7–8:30am"]]],
+ ["Coding and Creating With Arduino","7–11 年級","coding-and-creating-arduinor-ardc",[
+  ["A 前段","1/26–3/9（週二）","7–8:30pm","1/27–3/10（週三）","8–9:30am"],
+  ["A 後段","3/16–4/13（週二）","7–8:30pm","3/17–4/14（週三）","7–8:30am"]]],
+ ["CTY Reading Challenge","6–8 年級","cty-reading-challenge-book",[
+  ["A 前段","1/24–3/7（週日）","5–6:30pm","1/25–3/8（週一）","6–7:30am"],
+  ["A 後段","3/14–4/11（週日）","5–6:30pm","3/15–4/12（週一）","5–6:30am"]]],
+ ["Disease Dynamics and Data Modeling","7–11 年級","disease-dynamics-and-data-modeling-ppan",[
+  ["B","3/25–4/29（週四）","6–7:30pm","3/26–4/30（週五）","6–7:30am"]]],
+ ["Dream It, Code It, Build It","7–10 年級","dream-it-code-it-build-it-demd",[
+  ["A","1/26–3/2（週二）","7–8:30pm","1/27–3/3（週三）","8–9:30am"],
+  ["B","3/24–4/28（週三）","7–8:30pm","3/25–4/29（週四）","7–8:30am"]]],
+ ["Economic Chaos: Understanding Volatile Markets","7–11 年級","economic-chaos-understanding-volatile-markets-ecvm",[
+  ["A","1/27–3/3（週三）","8–9:30pm","1/28–3/4（週四）","9–10:30am"]]],
+ ["Game Theory and Strategy","7–11 年級","game-theory-and-strategy-gmts",[
+  ["B","3/25–4/29（週四）","8–9:30pm","3/26–4/30（週五）","8–9:30am"]]],
+ ["Logic and Proofs: Fundamentals","7–8 年級","logic-and-proofs-fundamentals-lpfd",[
+  ["A","1/26–2/9（週二）","7–8:30pm","1/27–2/10（週三）","8–9:30am"],
+  ["B","3/24–4/7（週三）","7–8:30pm","3/25–4/8（週四）","7–8:30am"]]],
+ ["Skillshop Challenge: Advanced Competitive Math","7–11 年級","skillshop-challenge-advanced-competitive-math-askc",[
+  ["B","3/25–4/29（週四）","7–8:30pm","3/26–4/30（週五）","7–8:30am"]]],
+ ["Skillshop Challenge: Chess","4–10 年級","skillshop-challenge-chess-cskc",[
+  ["A","1/27–3/3（週三）","6–7:30pm","1/28–3/4（週四）","7–8:30am"],
+  ["B","3/22–4/26（週一）","6–7:30pm","3/23–4/27（週二）","6–7:30am"]]],
+ ["Social Entrepreneurship: From Idea to Impact","7–9 年級","social-entrepreneurship-idea-impact-seii",[
+  ["A","1/26–3/2（週二）","7–8:30pm","1/27–3/3（週三）","8–9:30am"]]],
+ ["The Art of Game Design","7–11 年級","art-game-design-agds",[
+  ["A","1/27–3/3（週三）","8–9:30pm","1/28–3/4（週四）","9–10:30am"]]],
+ ["The Economics of Everyday Decisions","9–12 年級","economics-everyday-decisions-ecod",[
+  ["B","3/24–4/28（週三）","8–9:30pm","3/25–4/29（週四）","8–9:30am"]]],
+ ["The Mathematics of Money","7–11 年級","mathematics-money-mmon",[
+  ["A","1/26–3/2（週二）","7–8:30pm","1/27–3/3（週三）","8–9:30am"],
+  ["B","3/24–4/28（週三）","7–8:30pm","3/25–4/29（週四）","7–8:30am"]]],
+ ["The Mystery of Memory","7–11 年級","mystery-memory-mmem",[
+  ["B","3/24–4/28（週三）","7–8:30pm","3/25–4/29（週四）","7–8:30am"]]],
+ ["The Physics of Sports","7–11 年級","physics-sports-pspo",[
+  ["B","3/24–4/28（週三）","7–8:30pm","3/25–4/29（週四）","7–8:30am"]]],
+ ["The Science of Neurological Disorders","9–12 年級","science-neurological-disorders-snds",[
+  ["B","3/25–4/29（週四）","7–8:30pm","3/26–4/30（週五）","7–8:30am"]]],
+ ["The Way to Win: Intro to Game Theory","6–8 年級","way-win-introduction-game-theory-wtwn",[
+  ["A","1/26–3/2（週二）","7–8:30pm","1/27–3/3（週三）","8–9:30am"]]]
+];
+var H = [
+ ["Honors Algebra I","honors-algebra-i-al1s"],
+ ["Honors Algebra II","honors-algebra-ii-al2s"],
+ ["Honors Geometry","honors-geometry-geos"],
+ ["Honors Grade 7 Mathematics","honors-grade-7-mathematics-hg7s"],
+ ["Honors Grade 8 Mathematics","honors-grade-8-mathematics-hg8s"]
+];
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+var out = "";
+C.forEach(function(c,gi){
+  var n = c[3].length;
+  c[3].forEach(function(r,i){
+    var t = r[0].charAt(0);
+    var rest = r[0].length > 1 ? "<small>" + esc(r[0].slice(2)) + "</small>" : "";
+    out += '<tr class="' + (i===0 ? 'first ' : '') + (gi % 2 ? 'band' : '') + '">';
+    if (i===0) {
+      out += '<td class="course" rowspan="' + n + '">' + esc(c[0]) + '<span class="grade">' + esc(c[1]) + '</span>' +
+        '<a class="btn" href="' + BASE + c[2] + '" target="_blank" rel="noopener">課程說明</a></td>';
+    }
+    out += '<td><span class="chip ' + t + '">' + t + rest + '</span></td>' +
+      '<td class="one">' + esc(r[1]) + '<b>' + esc(r[2]) + '</b></td>' +
+      '<td class="tw one">' + esc(r[3]) + '<b>' + esc(r[4]) + '</b></td>';
+    out += '</tr>';
+  });
+});
+document.getElementById("rows").innerHTML = out;
+document.getElementById("honors").innerHTML = H.map(function(h){
+  return '<a class="btn" href="' + BASE + h[1] + '" target="_blank" rel="noopener">' + esc(h[0]) + '</a>';
+}).join("");
+</script>
+
+</body>
+</html>
