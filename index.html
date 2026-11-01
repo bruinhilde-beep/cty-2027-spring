@@ -61,6 +61,11 @@
   --termA: #ffc247; --termA-fg: #2e1a00; --termB: #e0644f; --termB-fg: #2a0d08;
   --tw: #3b2d14; --tw2: #46341a; color-scheme: dark;
 }
+:root { --rowA: #fff4d0; --rowA-tw: #fcdf86; --rowB: #fde9e4; --rowB-tw: #f5bcb0; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --rowA: #3a2d12; --rowA-tw: #594510; --rowB: #3b1f1a; --rowB-tw: #5e2a22; }
+}
+:root[data-theme="dark"] { --rowA: #3a2d12; --rowA-tw: #594510; --rowB: #3b1f1a; --rowB-tw: #5e2a22; }
 body { background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 15px; line-height: 1.55;
   padding-block: 28px 56px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
 .wrap { max-width: 1120px; margin: 0 auto; display: grid; gap: 20px; }
@@ -74,8 +79,11 @@ table { border-collapse: collapse; width: 100%; min-width: 900px; font-variant-n
 th { text-align: left; font-size: 12px; letter-spacing: .06em; color: var(--muted); font-weight: 600; padding: 10px 12px; border-bottom: 2px solid var(--accent); background: var(--head); color: var(--fg); white-space: nowrap; }
 th.tw { background: var(--tw2); }
 td.tw { background: var(--tw); font-weight: 500; }
-tr.band td { background: var(--band); }
-tr.band td.tw { background: var(--tw2); }
+td.course { background: var(--surface); }
+tr.rA td:not(.course) { background: var(--rowA); }
+tr.rA td.tw { background: var(--rowA-tw); }
+tr.rB td:not(.course) { background: var(--rowB); }
+tr.rB td.tw { background: var(--rowB-tw); }
 td { padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
 tr.first td { border-top: 2px solid var(--line); }
 td.course { min-width: 240px; font-weight: 700; font-size: 18px; line-height: 1.35; }
@@ -108,6 +116,7 @@ h2 { font-size: 18px; margin: 0; }
     <p><b>時差：</b>美國夏令時間 2027/3/14 開始。之前台灣比美東快 13 小時，之後快 12 小時。台灣沒有夏令時間。</p>
     <p><b>看台灣時間：</b>美東晚上的課在台灣是隔天早上；美東週六早上的課在台灣是同一天晚上。</p>
     <p><b>非官方整理：</b>這是個人整理的參考表，與 Johns Hopkins CTY 無關。課程內容、日期與報名截止日以 CTY 官網為準。</p>
+    <p><b>顏色：</b>黃色底是 A 班，粉紅底是 B 班；同一列裡顏色較深的是台灣時間。</p>
     <p><b>學期：</b><span class="chip A">A</span> 春季 A（1/24–3/6 開課）　<span class="chip B">B</span> 春季 B（3/22–5/1 開課）</p>
   </section>
 
@@ -203,7 +212,7 @@ C.forEach(function(c,gi){
   c[3].forEach(function(r,i){
     var t = r[0].charAt(0);
     var rest = r[0].length > 1 ? "<small>" + esc(r[0].slice(2)) + "</small>" : "";
-    out += '<tr class="' + (i===0 ? 'first ' : '') + (gi % 2 ? 'band' : '') + '">';
+    out += '<tr class="' + (i===0 ? 'first ' : '') + 'r' + t + '">';
     if (i===0) {
       out += '<td class="course" rowspan="' + n + '">' + esc(c[0]) + '<span class="grade">' + esc(c[1]) + '</span>' +
         '<a class="btn" href="' + BASE + c[2] + '" target="_blank" rel="noopener">課程說明</a></td>';
